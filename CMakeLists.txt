@@ -13,6 +13,18 @@ add_library(${PROJECT_NAME} STATIC
 	algo_grid_b.cu
 )
 
+# Expose benchmark configuration to the CMake command line
+set(GRID_CELL_SIZE "1.0f" CACHE STRING "Size of the uniform grid cells")
+set(GRID_RES_X "100" CACHE STRING "Grid resolution in the x dimension")
+set(GRID_RES_Y "100" CACHE STRING "Grid resolution in the y dimension")
+set(GRID_RES_Z "100" CACHE STRING "Grid resolution in the z dimension")
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+	GRID_CELL_SIZE=${GRID_CELL_SIZE}
+	GRID_RES_X=${GRID_RES_X}
+	GRID_RES_Y=${GRID_RES_Y}
+	GRID_RES_Z=${GRID_RES_Z}
+)
+
 # Required for viewing debug stats for individual code lines
 target_compile_options(${PROJECT_NAME} PRIVATE -lineinfo)
 
@@ -32,11 +44,5 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 	CUDA_STANDARD 17
 	CUDA_STANDARD_REQUIRED ON
 	POSITION_INDEPENDENT_CODE ON
-	# Common choices:
-	#   52  = Maxwell (GTX 900 series)
-	#   61  = Pascal  (GTX 1000 series)
-	#   75  = Turing  (RTX 2000 series)
-	#   86  = Ampere  (RTX 3000 series)
-	#   89  = Ada     (RTX 4000 series)
-	CUDA_ARCHITECTURES "75;86;89"
+	CUDA_ARCHITECTURES "native" # Compile only for the installed GPU
 )
