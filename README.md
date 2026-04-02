@@ -18,13 +18,13 @@ set(GRID_RES_Z "100")
 
 ## Reproducing Paper Benchmarks
 
-The benchmark suite is hosted in the [Tics physics engine](https://github.com/timo-eberl/tics) repository. To reproduce the setup used for the paper, use the commit [`710b18d`](https://github.com/timo-eberl/tics/tree/710b18db149dabbc73180a2c379cb62c6c6fd631).
+The benchmark suite is hosted in the [Tics physics engine](https://github.com/timo-eberl/tics) repository. To reproduce the setup used for the paper, use the commit [`8637954`](https://github.com/timo-eberl/tics/tree/86379549fa8aa836e2d45d8e000f7025cb38108e).
 
 ```bash
 # Setup Tics repository
 git clone https://github.com/timo-eberl/tics.git
 cd tics
-git checkout 710b18db149dabbc73180a2c379cb62c6c6fd631
+git checkout 86379549fa8aa836e2d45d8e000f7025cb38108e
 
 # Build benchmarks
 ./demos/benchmark_broadphase/build_benchmark_1.sh
