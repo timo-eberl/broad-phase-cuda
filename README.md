@@ -25,19 +25,18 @@ The benchmark suite is hosted in the [Tics physics engine](https://github.com/ti
 git clone https://github.com/timo-eberl/tics.git
 cd tics
 git checkout dfc1fe2a06f52aee287ad28b794431eb238cc88b
-cd demos/benchmark_broadphase/
 
 # Build benchmarks
-./build_benchmark_1.sh
-./build_benchmark_2.sh
+./demos/benchmark_broadphase/build_benchmark_1.sh
+./demos/benchmark_broadphase/build_benchmark_2.sh
 
 # Run benchmarks (outputs raw logs to results/)
-./run_benchmark_1.sh
-./run_benchmark_2.sh
+./demos/benchmark_broadphase/run_benchmark_1.sh
+./demos/benchmark_broadphase/run_benchmark_2.sh
 
 # Parse results into PGFPlots-compatible coordinate tuples
-python3 parse_benchmark_1.py
-python3 parse_benchmark_2.py
+python3 demos/benchmark_broadphase/parse_benchmark_1.py
+python3 demos/benchmark_broadphase/parse_benchmark_2.py
 ```
 
 The final parsed data will be written to `parsed_benchmark1.txt` and `parsed_benchmark2.txt`.
