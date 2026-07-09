@@ -5,16 +5,10 @@ CUDA Uniform Grid broad phase collision detection algorithms from the paper *"Co
 * **Strategy A (Multi-Cell):** Inserts objects into all overlapping cells. Robust for high geometric variance.
 * **Strategy B (Single-Cell):** Assigns objects to one cell. Uses our optimized **14-cell Half Shell** or traditional 27-cell neighbor search. Best for uniform particle systems.
 
-## Integration
+## Requirements
 
-Builds as a static library (`broad_phase_cuda`) via CMake (3.18+). Requires CUDA Toolkit (Standard 17) and CUB. Grid parameters are exposed as CMake cache variables:
-
-```cmake
-set(GRID_CELL_SIZE "1.0f")
-set(GRID_RES_X "100")
-set(GRID_RES_Y "100")
-set(GRID_RES_Z "100")
-```
+- CMake (3.18+)
+- CUDA Toolkit (Standard 17)
 
 ## Reproducing Paper Benchmarks
 
